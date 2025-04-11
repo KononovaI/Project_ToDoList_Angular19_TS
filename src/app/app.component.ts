@@ -29,4 +29,11 @@ export class AppComponent {
     this.taskText.set('')
   }
 
+  removeTask(index: number) {
+    this.tasks.update(tasks => {
+      tasks.splice(index, 1)
+      return tasks
+    })
+  }
+
 }
