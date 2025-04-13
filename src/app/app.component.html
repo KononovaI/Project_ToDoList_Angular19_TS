@@ -4,8 +4,15 @@
 
 @for (task of tasks(); track task.id) {
   <div>
-    {{$index + 1}}. {{task.text}}
-    <button (click)="removeTask($index)">Remove</button>
-
+    {{$index + 1}}. 
+    @if ($index === editIndex()) {
+      <input type="text" [(ngModel)]="editText" />
+      <button (click)="saveTask()">Save</button>
+      <button (click)="editIndex.set(null)">Cancel</button>
+    } @else {
+      {{task.text}}
+      <button (click)="editTask($index)">Edit</button>
+      <button (click)="removeTask($index)">Remove</button>
+    }
   </div>
 }
