@@ -1,14 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 interface Task {
   id: number,
   text: string,
+  completed: boolean,
 }
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
@@ -26,7 +28,8 @@ export class AppComponent {
 
       tasks.push({
         id: taskId,
-        text: this.taskText()
+        text: this.taskText(),
+        completed: false,
       });
       return tasks
     })
@@ -59,6 +62,14 @@ export class AppComponent {
 
     this.editIndex.set(null);
     this.editText.set('');
+  }
+
+  toggleComplete(task: any) {
+    this.tasks.update(t => 
+      t.map(item =>
+        item.id === task.id ? { ...item, completed: !item.completed } : item
+      )
+    );
   }
 
 }

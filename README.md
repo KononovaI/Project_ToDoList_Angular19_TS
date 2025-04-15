@@ -5,7 +5,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## My comments about app
 Single page application, without SSR
 Zoneless
-Full functionality: Add, Change (incl.Save and Cancel), Delete
+Full functionality: Add, Change (incl.Save and Cancel), Delete, Completed
 
 ## Development server
 

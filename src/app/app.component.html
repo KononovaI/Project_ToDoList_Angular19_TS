@@ -1,18 +1,22 @@
 
 <form (ngSubmit)="addTask()">
-  <input type="text" [(ngModel)]='taskText' name="task">
+  <input type="text" [ngModel]="taskText()" (ngModelChange)="taskText.set($event)" name="task" />
   <button type="submit">Add</button>
 </form>
 
 @for (task of tasks(); track task.id) {
   <div>
-    {{$index + 1}}. 
+    <input type="checkbox" [checked]="task.completed" (change)="toggleComplete(task)" />
+
     @if ($index === editIndex()) {
       <input type="text" [(ngModel)]="editText" />
       <button (click)="saveTask()">Save</button>
       <button (click)="editIndex.set(null)">Cancel</button>
     } @else {
-      {{task.text}}
+      <span [ngClass]="{'text-decoration-line-through': task.completed}">
+        {{task.text}}
+      </span>
+      
       <button (click)="editTask($index)">Edit</button>
       <button (click)="removeTask($index)">Remove</button>
     }
