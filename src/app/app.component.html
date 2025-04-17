@@ -1,24 +1,25 @@
-
-<form (ngSubmit)="addTask()">
-  <input type="text" [ngModel]="taskText()" (ngModelChange)="taskText.set($event)" name="task" />
-  <button type="submit">Add</button>
-</form>
-
-@for (task of tasks(); track task.id) {
-  <div>
-    <input type="checkbox" [checked]="task.completed" (change)="toggleComplete(task)" />
-
-    @if ($index === editIndex()) {
-      <input type="text" [(ngModel)]="editText" />
-      <button (click)="saveTask()">Save</button>
-      <button (click)="editIndex.set(null)">Cancel</button>
-    } @else {
-      <span [ngClass]="{'text-decoration-line-through': task.completed}">
-        {{task.text}}
-      </span>
-      
-      <button (click)="editTask($index)">Edit</button>
-      <button (click)="removeTask($index)">Remove</button>
+<div class="container">
+  <div class="title">To Do List</div>
+    <form class="row" (ngSubmit)="addTask()">
+      <input class="input" type="text" [ngModel]="taskText()" (ngModelChange)="taskText.set($event)" name="task" />
+      <button class="button" type="submit">Add</button>
+    </form>
+  <div class="row">
+    @for (task of tasks(); track task.id) {
+      <div class="list">
+        <input type="checkbox" [checked]="task.completed" (change)="toggleComplete(task)" />
+        @if ($index === editIndex()) {
+          <input type="text" [(ngModel)]="editText" />
+          <button class="button" (click)="saveTask()">Save</button>
+          <button class="button" (click)="editIndex.set(null)">Cancel</button>
+        } @else {
+          <span [ngClass]="{'text-decoration-line-through': task.completed}">
+            {{task.text}}
+          </span>
+          <button class="button" (click)="editTask($index)">Edit</button>
+          <button class="button" (click)="removeTask($index)">Remove</button>
+        }
+      </div>
     }
   </div>
-}
+</div>

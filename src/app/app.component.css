@@ -1,3 +1,43 @@
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  color: rgb(55, 112, 93);
+  font-size: 1.75em;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.input {
+  max-width: 95vw;
+  width: 100%;
+}
+
+.button {
+  max-width: 70px;
+  width: 100%;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.list {
+  display:flex;
+  align-items: center;
+  max-width: 97vw;
+  width: 100%;
+  background-color: rgba(138, 230, 199, 0.123);
+  padding: 5px;
+}
+
 .text-decoration-line-through {
   text-decoration: line-through;
 }
