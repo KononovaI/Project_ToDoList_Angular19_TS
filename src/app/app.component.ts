@@ -1,4 +1,4 @@
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -10,7 +10,7 @@ interface Task {
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule, NgClass],
+  imports: [FormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
@@ -18,11 +18,18 @@ interface Task {
 export class AppComponent {
   tasks = signal<Task[]>([]);
   taskText = model('');
-
   editIndex = signal<number | null>(null);
   editText = model('');
+  showWarning = signal(false);
+
 
   addTask() {
+    const trimmedText = this.taskText().trim();
+    if(!trimmedText) {
+      this.showWarning.set(true);
+      return;
+    }
+
     this.tasks.update(tasks => {
       const taskId = tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1;
 
@@ -33,7 +40,8 @@ export class AppComponent {
       });
       return tasks
     })
-    this.taskText.set('')
+    this.taskText.set('');
+    this.showWarning.set(false);
   }
 
   removeTask(index: number) {

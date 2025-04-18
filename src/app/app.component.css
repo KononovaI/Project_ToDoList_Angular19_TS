@@ -41,3 +41,11 @@
 .text-decoration-line-through {
   text-decoration: line-through;
 }
+
+.warning-message {
+  color: red;
+  font-size: 2rem;
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 1em;
+}

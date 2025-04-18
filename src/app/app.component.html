@@ -4,6 +4,9 @@
       <input class="input" type="text" [ngModel]="taskText()" (ngModelChange)="taskText.set($event)" name="task" />
       <button class="button" type="submit">Add</button>
     </form>
+    <div *ngIf="showWarning()" class="warning-message">
+      The input cannot be empty! Please, add the text!
+    </div>
   <div class="row">
     @for (task of tasks(); track task.id) {
       <div class="list">
