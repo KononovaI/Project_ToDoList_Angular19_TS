@@ -3,10 +3,10 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
 ## My comments about app
-Single page application, without SSR
-Zoneless
-Full functionality: Add, Change (incl.Save and Cancel), Delete, Completed, avoid enter the empty task
-Simple Css
+Single page application, without SSR. 
+Zoneless. 
+Full functionality: Add, Change (incl.Save and Cancel), Delete, Completed, avoid enter the empty task. 
+Styled with Css.
 
 ## Development server
 
