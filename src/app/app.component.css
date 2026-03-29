@@ -2,7 +2,11 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  height: 100vh;
+  max-width: 75%;
   gap: 10px;
+  margin: 0 auto;
 }
 
 .title {
@@ -18,7 +22,7 @@
 }
 
 .input {
-  max-width: 95vw;
+  max-width: 55vw;
   width: 100%;
 }
 
@@ -32,8 +36,8 @@
 .list {
   display:flex;
   align-items: center;
-  max-width: 97vw;
-  width: 100%;
+  max-width: 85vw;
+  width: 90%;
   background-color: rgba(138, 230, 199, 0.123);
   padding: 5px;
 }
